@@ -10,6 +10,13 @@ package mh.javacore;
  */
 public class NhanVienChinhThuc extends NhanVien {
     public int xuatLuong() {
-        return 0;
+        return 5000;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"==> vi la nhan vien chinh thuc"; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
 }
