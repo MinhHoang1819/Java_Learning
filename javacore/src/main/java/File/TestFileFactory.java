@@ -4,13 +4,14 @@
  */
 package File;
 
+import java.util.ArrayList;
+import Model.KhachHang;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import mh.javacore.KhachHang;
+import java.io.UnsupportedEncodingException;
 
 /**
  *
@@ -18,24 +19,28 @@ import mh.javacore.KhachHang;
  */
 public class TestFileFactory {
 
-    public static boolean luuFile(ArrayList<KhachHang> dsKH, String path) {
+    public static boolean luuFile(ArrayList<KhachHang> dsKH, String path) throws IOException {
         try {
+            
             FileOutputStream fos = new FileOutputStream(path);
-            OutputStreamWriter osw = new FileWriter(fos, "UTF-8");
+            OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
             BufferedWriter bw = new BufferedWriter(osw);
             for (KhachHang kh : dsKH) {
-                String line = kh.getMa() + "; " + kh.getTen();
+                String line = kh.getMa()+"; "+kh.getTen();
                 bw.write(line);
                 bw.newLine();
             }
-
+            
             bw.close();
             osw.close();
-            fos.close();    
+            fos.close();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+            return true;
+            
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
         }
-        return (false);
+
+        return false;
+
     }
 }
