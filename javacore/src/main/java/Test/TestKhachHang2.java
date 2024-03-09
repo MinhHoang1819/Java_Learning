@@ -4,25 +4,25 @@
  */
 package Test;
 
+import File.SerializeFileFactory;
 import File.TestFileFactory;
-import java.util.ArrayList;
 import Model.KhachHang;
-import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
  * @author salen
  */
-public class TestKhachHang {
+public class TestKhachHang2 {
 
-    public static void luuFile(String[] args) throws IOException {
+    public static void testluuFile() {
         ArrayList<KhachHang> dsKH = new ArrayList<KhachHang>();
         dsKH.add(new KhachHang("KH01", "Nguyen Van A"));
         dsKH.add(new KhachHang("KH02", "Tran Van Binh"));
         dsKH.add(new KhachHang("KH03", "Ho Thi C"));
         dsKH.add(new KhachHang("KH04", "Hoang Ngoc D"));
 
-        boolean kt = TestFileFactory.luuFile(dsKH, "D:\\dulieu.txt");
+        boolean kt = SerializeFileFactory.luuFile(dsKH, "D:\\dulieu2.txt");
         if (kt == true) {
             System.out.println("Da luu file thanh cong!");
         } else {
@@ -32,7 +32,7 @@ public class TestKhachHang {
 
     public static void main(String[] args) {
         //testluuFile();
-        ArrayList<KhachHang> dsKH = TestFileFactory.docFile("D:\\dulieu.txt");
+        ArrayList<KhachHang> dsKH = SerializeFileFactory.docFile("D:\\dulieu2.txt");
 
         System.out.println("Danh sach khach hang dc them vao may la: ");
         System.out.println("Ma\nTen");

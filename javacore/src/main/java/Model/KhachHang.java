@@ -4,11 +4,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author salen
  */
-public class KhachHang {
+public class KhachHang implements Serializable{
     private String ma;
     private String ten;
 
