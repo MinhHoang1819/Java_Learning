@@ -4,8 +4,11 @@
  */
 package Test_1;
 
+import File_1.SerializeFileFactory;
 import Model_1.KhachHang;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -92,23 +95,52 @@ public class TestKhachHang {
     }
 
     private static void xuLyTim() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String phone = "090";
+
+        System.out.println("===================");
+        System.out.println("Khach hang co dau so 090: ");
+        System.out.println("Ma\tTen\tPhone");
+
+        for (KhachHang kh : dsKH) {
+            if (kh.getPhone().startsWith(phone)) {
+                System.out.println(kh);
+            }
+
+        }
+
+        System.out.println("===================");
     }
 
     private static void xuLySapXep() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Collections.sort(dsKH);
+
+        System.out.println("Da sap xep so dien thoai.");
     }
 
     private static void xuLyLuu() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean kt = new SerializeFileFactory.luuFile(dsKH, "D:\\dulieukhachhang.db");
+        if (kt == true) {
+            System.out.println("Da luu file thanh cong!");
+        } else {
+            System.out.println("Da luu file that bai!");
+        }
     }
 
     private static void xuLyDoc() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dsKH = SerializeFileFactory.docFile("D:\\dulieukhachhang.db");
+        System.out.println("Da doc file thanh cong!");
     }
 
     private static void xuLyThongKe() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int n = 0;
+        for (KhachHang kh : dsKH) {
+            if (kh.getPhone().startsWith("098")) {
+                n++;
+            }
+
+        }
+
+        System.out.println("Co" + n + "khach hang Viettel.");
     }
 
     private static void xuLyThoat() {

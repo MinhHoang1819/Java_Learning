@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author salen
  */
-public class KhachHang implements Serializable {
+public class KhachHang implements Serializable, Comparable<KhachHang> {
 
     private int ma;
     private String ten;
@@ -54,6 +54,11 @@ public class KhachHang implements Serializable {
     @Override
     public String toString() {
         return this.ma + "\t" + this.ten + "\t" + this.phone;
+    }
+
+    @Override
+    public int compareTo(KhachHang o) {
+        return this.phone.compareToIgnoreCase(o.phone);
     }
 
 }
